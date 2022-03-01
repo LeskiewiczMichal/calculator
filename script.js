@@ -122,11 +122,18 @@ keys.addEventListener('click', e => {
             screen.textContent = result;
         };
 
+
         if (usedFor === 'clear') {
+            const clearButton = document.querySelector('#clear');
+            screen.textContent = 0;
+            if (clearButton.textContent === 'AC') {
             screen.textContent = 0;
             calculator.dataset.firstNumber = '';
             calculator.dataset.operator = '';
             calculator.dataset.previousKey = '';
+            }
+            clearButton.textContent = 'AC';
+
         };
 
         if (usedFor === 'decimal') {
@@ -134,6 +141,11 @@ keys.addEventListener('click', e => {
                 screen.textContent = display + '.';
             };
             calculator.dataset.previousKey = 'decimal'
+        };
+        
+        if (screen.textContent !== '0'){
+            const clearButton = document.querySelector('#clear');
+            clearButton.textContent = 'CE';
         }
     }
 })
