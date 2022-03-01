@@ -115,6 +115,9 @@ keys.addEventListener('click', e => {
             if (isNaN(result)) {
                 screen.style.fontSize = '50px';
                 result = 'Enter valid numbers';
+            } else if (!firstNumber) {
+                screen.style.fontSize = '50px';
+                result = 'Enter all numbers';
             } else if (result.toString().length > 11) {
                 screen.style.fontSize = '50px';
                 result = 'Number too big.'
