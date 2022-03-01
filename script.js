@@ -131,6 +131,8 @@ keys.addEventListener('click', e => {
             calculator.dataset.firstNumber = '';
             calculator.dataset.operator = '';
             calculator.dataset.previousKey = '';
+            Array.from(document.querySelectorAll('button'))
+            .forEach(k => k.classList.remove('highlight'));
             }
             clearButton.textContent = 'AC';
 
@@ -142,11 +144,68 @@ keys.addEventListener('click', e => {
             };
             calculator.dataset.previousKey = 'decimal'
         };
-        
+
         if (screen.textContent !== '0'){
             const clearButton = document.querySelector('#clear');
             clearButton.textContent = 'CE';
         }
     }
-})
+});
+
+document.onkeydown = e => {
+    const keyCode = e.keyCode;
+
+    if (e.key == '0' || e.key == 'Num0') {
+        document.getElementById('zero').click();
+    };
+    if (e.key == '1' || e.key == 'Num1') {
+        document.getElementById('one').click();
+    }
+    if (e.key == '2' || e.key == 'Num2') {
+        document.getElementById('two').click();
+    };
+    if (e.key == '3' || e.key == 'Num3') {
+        document.getElementById('three').click();
+    };
+    if (e.key == '4' || e.key == 'Num4') {
+        document.getElementById('four').click();
+    };
+    if (e.key == '5' || e.key == 'Num5') {
+        document.getElementById('five').click();
+    };
+    if (e.key == '6' || e.key == 'Num6') {
+        document.getElementById('six').click();
+    };
+    if (e.key == '7' || e.key == 'Num7') {
+        document.getElementById('seven').click();
+    };
+    if (e.key == '8' || e.key == 'Num8') {
+        document.getElementById('eight').click();
+    };
+    if (e.key == '9' || e.key == 'Num9') {
+        document.getElementById('nine').click();
+    };
+    if (keyCode == 187 && e.shiftKey) {
+        document.getElementById('plus').click();
+    };
+    if (keyCode == 189) {
+        document.getElementById('subtract').click();
+    };
+    if (keyCode == 56 && e.shiftKey) {
+        document.getElementById('multiply').click();
+    };
+    if (keyCode == 191) {
+        document.getElementById('divide').click();
+    };
+    if (keyCode == 187 && !e.shiftKey) {
+        document.getElementById('equal').click();
+    };
+    if (keyCode == 8) {
+        document.getElementById('clear').click();
+    };
+    if (keyCode == 190) {
+        document.getElementById('decimal').click();
+    };
+}
+
 
