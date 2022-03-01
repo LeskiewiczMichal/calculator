@@ -64,6 +64,7 @@ body {
     grid-column-end: span 2;
 }
 
-.highlighted {
-    background-color: red;
+.highlight {
+    background-color: orange;
+    color: #28283e;
 }

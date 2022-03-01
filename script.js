@@ -65,6 +65,9 @@ keys.addEventListener('click', e => {
                 screen.textContent = display + keyContent;
             }
             calculator.dataset.previousKey = 'number';
+            
+            Array.from(document.querySelectorAll('button'))
+            .forEach(k => k.classList.remove('highlight'));
         };
 
         if (
@@ -76,6 +79,7 @@ keys.addEventListener('click', e => {
             let firstNumber = calculator.dataset.firstNumber;
             const operator = calculator.dataset.operator;
             const secondNumber = display;
+            e.target.classList.add('highlight');
 
             if (
                 firstNumber &&
@@ -107,8 +111,6 @@ keys.addEventListener('click', e => {
             const secondNumber = display;
             const operator = calculator.dataset.operator;
             calculator.dataset.previousKey = 'calculate';
-            console.log(firstNumber)
-            console.log(secondNumber)
             let result = operate(firstNumber, secondNumber, operator);
             if (isNaN(result)) {
                 screen.style.fontSize = '50px';
